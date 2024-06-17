@@ -1,20 +1,31 @@
-package com.lautify.app.api
-
+import com.lautify.app.api.ApiService
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object PredictApiClient {
-    private const val PREDICT_BASE_URL ="https://lautify-predict-jgr52etzdq-et.a.run.app/"
+    private const val BASE_URL = "https://8r7nqw07-8000.asse.devtunnels.ms/"
 
-    val predict: ApiService by lazy {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(PREDICT_BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+    private val client: OkHttpClient by lazy {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+
+        OkHttpClient.Builder()
+            .addInterceptor(interceptor)
+            .followRedirects(true)
             .build()
-        retrofit.create(ApiService::class.java)
     }
 
-    fun predict(): ApiService{
-        return predict
+    private val retrofit: Retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+    val instance: ApiService by lazy {
+        retrofit.create(ApiService::class.java)
     }
 }

@@ -9,6 +9,7 @@ import com.lautify.app.api.response.RegisterResponse
 import com.lautify.app.api.response.SuccessResponse
 import com.lautify.app.api.response.SuccessResponses
 import okhttp3.MultipartBody
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -17,6 +18,7 @@ import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
     @GET("recipes")
@@ -26,6 +28,11 @@ interface ApiService {
     fun getRecipesDetails(
         @Path("rid")rid:String
     ):Call<DetailResponse>
+
+    @GET("search")
+    fun getSearch(
+        @Query("query") query: String
+    ):Call<List<RecipesResponse>>
 
     @POST("auth/login")
     suspend fun Login(
@@ -42,9 +49,9 @@ interface ApiService {
 
 
     @Multipart
-    @POST("predict")
+    @POST("/predict/")
     fun uploadImage(
-        @Part predict : MultipartBody.Part
-    ): Call<PredictResponse>
+        @Part predict: MultipartBody.Part,
+    ): Call<ResponseBody>
 }
 

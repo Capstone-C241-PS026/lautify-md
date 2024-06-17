@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lautify.app.adapter.UserAdapter
 import com.lautify.app.api.ApiClient
@@ -40,6 +41,21 @@ class   RecipeFragment : Fragment() {
 
         // Show loading indicator
         binding.progressBar.visibility = View.VISIBLE
+        binding.editTextSearch.setOnEditorActionListener { textView, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                val query = textView.text.toString().trim()
+                if (query.isNotEmpty()) {
+                    // Clear focus from EditText
+                    textView.clearFocus()
+                    searchRecipes(query)
+                    true
+                } else {
+                    false
+                }
+            } else {
+                false
+            }
+        }
 
         // Fetch and display recipes
         getRecipesList()
@@ -76,6 +92,42 @@ class   RecipeFragment : Fragment() {
             }
         })
     }
+
+    private fun searchRecipes(query: String) {
+        // Show loading indicator
+        binding.progressBar.visibility = View.VISIBLE
+
+        ApiClient.instances.getSearch(query).enqueue(object : Callback<List<RecipesResponse>> {
+            override fun onFailure(call: Call<List<RecipesResponse>>, t: Throwable) {
+                printLog(t.toString())
+                // Hide loading indicator
+                binding.progressBar.visibility = View.GONE
+            }
+
+            override fun onResponse(
+                call: Call<List<RecipesResponse>>,
+                response: Response<List<RecipesResponse>>
+            ) {
+                // Hide loading indicator
+                binding.progressBar.visibility = View.GONE
+
+                if (response.isSuccessful) {
+                    val result = response.body()
+                    result?.let {
+                        list.clear() // Clear the existing list before adding search results
+                        list.addAll(it)
+                        val adapter = UserAdapter(list, requireActivity())
+                        binding.rvData.adapter = adapter
+                        printLog("Search results loaded: ${it.size}")
+                    }
+                } else {
+                    printLog("Failed to get search results")
+                }
+            }
+        })
+    }
+
+
 
     private fun printLog(message: String) {
         Log.d(TAG, message)
