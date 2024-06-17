@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object PredictApiClient {
-    private const val BASE_URL = "https://8r7nqw07-8000.asse.devtunnels.ms/"
+    private const val BASE_URL = "https://8r7nqw07-8080.asse.devtunnels.ms/"
 
     private val client: OkHttpClient by lazy {
         val interceptor = HttpLoggingInterceptor()

@@ -29,7 +29,7 @@ interface ApiService {
         @Path("rid")rid:String
     ):Call<DetailResponse>
 
-    @GET("search")
+    @GET("recipes/fish/search")
     fun getSearch(
         @Query("query") query: String
     ):Call<List<RecipesResponse>>
@@ -49,7 +49,7 @@ interface ApiService {
 
 
     @Multipart
-    @POST("/predict/")
+    @POST("predict")
     fun uploadImage(
         @Part predict: MultipartBody.Part,
     ): Call<ResponseBody>

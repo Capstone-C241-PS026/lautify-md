@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lautify.app.adapter.UserAdapter
 import com.lautify.app.api.ApiClient
@@ -16,7 +15,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class   RecipeFragment : Fragment() {
+class RecipeFragment : Fragment() {
 
     private val TAG: String = "RecipeFragment"
     private var _binding: FragmentRecipeBinding? = null
@@ -41,29 +40,22 @@ class   RecipeFragment : Fragment() {
 
         // Show loading indicator
         binding.progressBar.visibility = View.VISIBLE
-        binding.editTextSearch.setOnEditorActionListener { textView, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                val query = textView.text.toString().trim()
-                if (query.isNotEmpty()) {
-                    // Clear focus from EditText
-                    textView.clearFocus()
-                    searchRecipes(query)
-                    true
-                } else {
-                    false
-                }
+
+        // Set the click listener for the search button
+        binding.btnSearch.setOnClickListener {
+            val query = binding.editTextSearch.text.toString().trim()
+            if (query.isNotEmpty()) {
+                // Clear focus from EditText
+                binding.editTextSearch.clearFocus()
+                searchRecipes(query)
+                Log.d("search", "query: $query")
             } else {
-                false
+                Log.d("search", "query empty")
             }
         }
 
         // Fetch and display recipes
         getRecipesList()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     private fun getRecipesList() {
@@ -86,6 +78,8 @@ class   RecipeFragment : Fragment() {
                         binding.rvData.adapter = adapter
                         printLog("Recipes loaded: ${it.size}")
                     }
+                } else {
+                    Log.d(TAG, "Response unsuccessful: ${response.errorBody()?.string()}")
                 }
                 // Hide loading indicator
                 binding.progressBar.visibility = View.GONE
@@ -121,15 +115,18 @@ class   RecipeFragment : Fragment() {
                         printLog("Search results loaded: ${it.size}")
                     }
                 } else {
-                    printLog("Failed to get search results")
+                    Log.d(TAG, "Failed to get search results: ${response.errorBody()?.string()}")
                 }
             }
         })
     }
 
-
-
     private fun printLog(message: String) {
         Log.d(TAG, message)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
