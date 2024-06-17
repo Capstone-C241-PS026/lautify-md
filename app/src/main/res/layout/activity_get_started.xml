@@ -1,0 +1,163 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/get_started"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    tools:context=".GetStartedActivity">
+
+
+    <Button
+        android:id="@+id/btn_get_started"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
+        android:backgroundTint="@color/secondary"
+        android:textColor="@color/primary"
+        android:text="@string/get_started"
+        android:textFontWeight="600"
+        android:contentDescription="@null"
+        android:layout_marginHorizontal="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="10dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_get_started"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.165">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:contentDescription="@null"
+            android:layout_marginTop="20dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/il_welcome" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome"
+            android:textColor="@color/secondary"
+            android:textSize="36sp"
+            android:textFontWeight="600"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/join_with"
+            android:textSize="11sp"
+            android:textColor="@color/secondary"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationZ="-1dp">
+
+        <ImageView
+            android:layout_width="106dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-10dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginEnd="314dp"
+            android:layout_marginBottom="469dp"
+            android:alpha="0.3"
+            android:rotation="50"
+            android:src="@drawable/ic_fish1"
+            app:tint="@color/secondary"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:layout_width="106dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="126dp"
+            android:layout_marginTop="664dp"
+            android:layout_marginEnd="178dp"
+            android:layout_marginBottom="-35dp"
+            android:alpha="0.3"
+            android:rotation="50"
+            android:src="@drawable/ic_fish1"
+            app:tint="@color/secondary"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:layout_width="106dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-32dp"
+            android:layout_marginTop="490dp"
+            android:layout_marginEnd="336dp"
+            android:layout_marginBottom="139dp"
+            android:alpha="0.3"
+            android:src="@drawable/ic_fish2"
+            app:tint="@color/secondary"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:layout_width="106dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="289dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="553dp"
+            android:alpha="0.3"
+            android:rotation="100"
+            android:src="@drawable/ic_fish2"
+            app:tint="@color/secondary"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:layout_width="106dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="318dp"
+            android:layout_marginTop="542dp"
+            android:layout_marginEnd="-14dp"
+            android:layout_marginBottom="87dp"
+            android:alpha="0.3"
+            android:rotation="180"
+            android:src="@drawable/ic_fish1"
+            app:tint="@color/secondary"
+            android:contentDescription="@null"/>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
