@@ -5,11 +5,210 @@
     android:layout_height="match_parent"
     tools:context=".fragment.SearchFragment">
 
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Search"
-        android:gravity="center"
-        android:textSize="30sp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/head_rec"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_info"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textColor="@color/black"/>
+    </FrameLayout>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="-40dp">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="180dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="140dp"
+            android:background="@drawable/fish_eye"
+            android:layout_marginTop="8dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="135dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="EYE"
+                android:textSize="30dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:text="Fresh fish eyes tend to be bulging, clear, bright and not dull."
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:text="Eyes that are sunken in indicate that the fish is not healthy enough. However, this does not apply to all types of fish."
+                android:textColor="@color/black"/>
+        </FrameLayout>
+    </FrameLayout>
+</FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="340dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp">
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="140dp"
+                android:background="@drawable/scale_fish"
+                android:layout_marginTop="8dp"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="135dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="SCALE"
+                    android:textSize="30dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="34dp"
+                    android:text="For fresh fish, the scales will stick tightly to the fleshy body."
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="72dp"
+                    android:text="Apart from that, it is known that fish scales have quite a variety of benefits for health.
+Harvard Health Publishing found that if consumed"
+                    android:textColor="@color/black"/>
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp">
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="140dp"
+                android:background="@drawable/gill_fish"
+                android:layout_marginTop="8dp"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="135dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="GILL"
+                    android:textSize="30dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="34dp"
+                    android:text="The characteristics of fresh fish that the gills are slightly reddish in color and have a fresh smell."
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="92dp"
+                    android:text="The red color here resembles the color of fresh blood, yes."
+                    android:textColor="@color/black"/>
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="654dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp">
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="140dp"
+                android:background="@drawable/meat_fish"
+                android:layout_marginTop="8dp"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="135dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="MEAT"
+                    android:textSize="30dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="34dp"
+                    android:text="Fresh fish has firm flesh that is not mushy or feels rubbery."
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="72dp"
+                    android:text="Try to press with one finger on the fish's body area. The characteristics of this fresh fish are that the flesh of the fish will not leave marks"
+                    android:textColor="@color/black"/>
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+</FrameLayout>
 </FrameLayout>

@@ -4,9 +4,9 @@
     <item android:title="Home"
         android:id="@+id/home"
         android:icon="@drawable/ic_home"/>
-    <item android:title="Search"
-        android:id="@+id/search"
-        android:icon="@drawable/ic_search"/>
+    <item android:title="Info"
+        android:id="@+id/info"
+        android:icon="@drawable/info_alt"/>
     <item android:title=""
         android:id="@null"
        android:enabled="false"/>

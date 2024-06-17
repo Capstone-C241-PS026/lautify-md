@@ -7,5 +7,19 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name_placeholder">Name</string>
     <string name="email_placeholder">Email</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="analyze">Analyze</string>
+    <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu.</string>
+    <string name="image_classifier_failed">Image classifier failed to initialize. See error logs for details</string>
+    <string name="result">Hasil Analisis</string>
+    <string name="prediction_text">Prediction: %1$s  (%2$d%%) </string>
+    <string name="prediction_failed">Predicition Failed:  %1$s (%2$d)</string>
+    <string name="fill_email">Email cannot be empty</string>
+    <string name="fill_password">Password Cannot be Empty</string>
+    <string name="fill_username">Name Cannot be Epty!</string>
+    <string name="title_home">Why should we consume fresh fish?</string>
+    <string name="desc_home">Fish that is not fresh is susceptible to the growth of bacteria and toxins which can cause food poisoning. Symptoms such as nausea, vomiting, diarrhea and fever can appear within a short time after consuming fish that is no longer suitable.</string>
+    <string name="title_info">Get to Know the Characteristics of Fresh Fish!</string>
 
 </resources>

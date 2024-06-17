@@ -1,15 +1,11 @@
 package com.lautify.app
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.lautify.app.databinding.ActivityMainBinding
 import com.lautify.app.fragment.*
 
@@ -29,14 +25,34 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> replaceFragment(HomeFragment())
-                R.id.search -> replaceFragment(SearchFragment())
+                R.id.info -> replaceFragment(SearchFragment())
                 R.id.recipe -> replaceFragment(RecipeFragment())
                 R.id.profile -> replaceFragment(ProfileFragment())
-                R.id.btn_camera -> checkCameraPermissionAndLaunch()
                 else -> {}
             }
             true
         }
+
+        val cameraButton: FloatingActionButton = findViewById(R.id.btn_camera)
+        cameraButton.setOnClickListener {
+            replaceFragment(CameraFragment())
+        }
+
+        val userPref = UserPreferece(this)
+        if (!userPref.isLoggedIn()) {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            // Load the HomeFragment
+            loadFragment(HomeFragment())
+        }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.home_fragment, fragment)
+        transaction.commit()
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -46,38 +62,4 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    private fun checkCameraPermissionAndLaunch() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA_PERMISSION)
-        } else {
-            launchCamera()
-        }
-    }
-
-    private fun launchCamera() {
-        val intent = Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE)
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
-        }
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_CAMERA_PERMISSION && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            launchCamera()
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            val imageBitmap = data?.extras?.get("data") as? Bitmap
-            // Handle the imageBitmap (e.g., display it in an ImageView)
-        }
-    }
-
-    companion object {
-        const val REQUEST_IMAGE_CAPTURE = 1
-        const val REQUEST_CAMERA_PERMISSION = 100
-    }
 }

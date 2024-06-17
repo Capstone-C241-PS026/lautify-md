@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/recipeFragment">
+
+
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="com.lautify.app.fragment.RecipeFragment"
+        android:label="fragment_recipe"
+        tools:layout="@layout/fragment_recipe" >
+        <action
+            android:id="@+id/action_recipeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.lautify.app.fragment.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="STORY_ID"
+            app:argType="string" />
+        <argument
+            android:name="STORY_TITLE"
+            app:argType="string" />
+        <argument
+            android:name="STORY_PHOTO_URL"
+            app:argType="string" />
+    </fragment>
+</navigation>
