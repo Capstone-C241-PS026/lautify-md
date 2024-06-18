@@ -21,10 +21,12 @@ class UserAdapter(
             with(binding) {
                 Glide.with(itemView.context).load(recipesResponse.image).into(cardImage)
                 title.text = recipesResponse.title
+                readyInMenute.text = recipesResponse.readyInMinutes.toString()
                 itemView.setOnClickListener {
                     val intent = Intent(activity, DetailActivity::class.java).apply {
                         putExtra("RID", recipesResponse.rid.toString())
                         putExtra("TITLE", recipesResponse.title)
+                        putExtra("READY_IN_MINUTES", recipesResponse.readyInMinutes.toString())
                         putExtra("RECIPE_PHOTO_URL", recipesResponse.image)
 
                     }
