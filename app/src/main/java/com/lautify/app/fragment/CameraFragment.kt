@@ -25,7 +25,9 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
+import org.json.JSONArray
 import org.json.JSONObject
+import org.json.JSONStringer
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -125,10 +127,7 @@ class CameraFragment : Fragment() {
         binding.progressIndicator.visibility = View.VISIBLE
 
         val file = uriToFile(uri, requireContext())
-        val requestFile = RequestBody.create(
-            "image/jpeg".toMediaTypeOrNull(),
-            file
-        )
+        val requestFile = RequestBody.create("image/*".toMediaTypeOrNull(), file)
         val body = MultipartBody.Part.createFormData("predict", file.name, requestFile)
 
         val call = PredictApiClient.instance.uploadImage(body)
@@ -140,32 +139,51 @@ class CameraFragment : Fragment() {
                 if (response.isSuccessful) {
                     val responseBody = response.body()?.string()
                     if (responseBody != null) {
-                        Log.d("Upload", "Success: $responseBody")
-                        val json = JSONObject(responseBody)
-                        val data = json.getJSONObject("data")
-                        val imageUrl = data.getString("image")
-                        val predictions = data.getJSONArray("predictions")
-                        val freshnessList = mutableListOf<String>()
+                        try {
+                            val json = JSONObject(responseBody)
+                            val status = json.getString("status")
+                            val data = json.optJSONObject("data") ?: JSONObject()
+                            val imageUrl = data.optString("image", "")
+                            val predictions = data.optJSONArray("predictions") ?: JSONArray()
+                            val freshnessList = mutableListOf<String>()
+                            val message = json.optJSONArray("message")?.optString(0, "Unknown error") ?: "Unknown error"
 
-                        for (i in 0 until predictions.length()) {
-                            val freshness = predictions.getJSONObject(i).getString("freshness")
-                            freshnessList.add(freshness)
+                            if (status == "error") {
+                                Log.d("eye_detect", message)
+                                Toast.makeText(requireContext(), "Mata ikan tidak terdeteksi", Toast.LENGTH_SHORT).show()
+                            } else {
+                                var freshCount = 0
+                                var notFreshCount = 0
+
+                                for (i in 0 until predictions.length()) {
+                                    val freshness = predictions.optJSONObject(i)?.optString("freshness", "Unknown freshness")
+                                    if (freshness == "not fresh") {
+                                        notFreshCount++
+                                    } else {
+                                        freshCount++
+                                    }
+                                }
+
+                                val freshnessDescription = "Dari hasil analisis gambar, terdapat $freshCount ikan yang segar dan $notFreshCount ikan yang tidak segar. Pastikan untuk memeriksa kondisi ikan secara fisik untuk memastikan kesegarannya sebelum dikonsumsi. 👍🏻"
+
+                                // Start ResultActivity and pass the data
+                                val intent = Intent(requireContext(), ResultActivity::class.java).apply {
+                                    putExtra("imageUrl", imageUrl)
+                                    putExtra("freshness", freshnessDescription)
+                                }
+                                startActivity(intent)
+                            }
+                        } catch (e: Exception) {
+                            Log.e("JSON Parsing Error", e.message ?: "Unknown error")
+                            Toast.makeText(requireContext(), "Error parsing response", Toast.LENGTH_SHORT).show()
                         }
-
-                        val freshness = freshnessList.joinToString(", ")
-
-                        // Start ResultActivity and pass the data
-                        val intent = Intent(requireContext(), ResultActivity::class.java).apply {
-                            putExtra("imageUrl", imageUrl)
-                            putExtra("freshness", freshness)
-                        }
-                        startActivity(intent)
                     } else {
                         Log.d("Upload", "Empty response body")
                     }
                 } else {
                     val errorBody = response.errorBody()?.string() ?: "Unknown error"
                     Log.d("Upload", "Failed with response code: ${response.code()}, error body: $errorBody")
+                    Toast.makeText(requireContext(), "Upload failed: $errorBody", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -174,9 +192,11 @@ class CameraFragment : Fragment() {
                 binding.progressIndicator.visibility = View.GONE
 
                 Log.e("Upload error:", t.message ?: "Unknown error")
+                Toast.makeText(requireContext(), "Upload failed: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
 
     private fun uriToFile(uri: Uri, context: Context): File {
         val file = File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "temp_image.jpg")

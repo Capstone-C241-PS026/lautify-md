@@ -29,17 +29,20 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingVertical="10dp"
-        app:layout_constraintBottom_toTopOf="@id/btn_get_started"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165">
+        app:layout_constraintVertical_bias="0.32">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo"
+            android:layout_marginTop="20dp"
             android:contentDescription="@null"
-            android:layout_marginTop="20dp"/>
+            android:src="@drawable/logo" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -53,111 +56,115 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="@string/welcome"
             android:textColor="@color/secondary"
-            android:textSize="36sp"
             android:textFontWeight="600"
-            android:layout_gravity="center_horizontal"/>
+            android:textSize="36sp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="@string/join_with"
-            android:textSize="11sp"
             android:textColor="@color/secondary"
-            android:layout_gravity="center_horizontal"/>
+            android:textSize="11sp" />
     </LinearLayout>
 
-    <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:translationZ="-1dp">
+        android:translationZ="-1dp"
+            android:alpha="0.5"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
-            android:layout_width="106dp"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="-10dp"
-            android:layout_marginTop="160dp"
-            android:layout_marginEnd="314dp"
-            android:layout_marginBottom="469dp"
-            android:alpha="0.3"
-            android:rotation="50"
-            android:src="@drawable/ic_fish1"
-            app:tint="@color/secondary"
-            android:contentDescription="@null"/>
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="110dp"
+                android:layout_height="98dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:alpha="0.3"
+                android:contentDescription="@null"
+                android:rotation="50"
+                android:src="@drawable/ic_fish1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.12"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.022"
+                app:tint="@color/secondary" />
 
-        <ImageView
-            android:layout_width="106dp"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="126dp"
-            android:layout_marginTop="664dp"
-            android:layout_marginEnd="178dp"
-            android:layout_marginBottom="-35dp"
-            android:alpha="0.3"
-            android:rotation="50"
-            android:src="@drawable/ic_fish1"
-            app:tint="@color/secondary"
-            android:contentDescription="@null"/>
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="104dp"
+                android:layout_height="121dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.3"
+                android:contentDescription="@null"
+                android:rotation="-50"
+                android:src="@drawable/ic_fish1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.182"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                app:tint="@color/secondary" />
 
-        <ImageView
-            android:layout_width="106dp"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="-32dp"
-            android:layout_marginTop="490dp"
-            android:layout_marginEnd="336dp"
-            android:layout_marginBottom="139dp"
-            android:alpha="0.3"
-            android:src="@drawable/ic_fish2"
-            app:tint="@color/secondary"
-            android:contentDescription="@null"/>
+            <ImageView
+                android:layout_width="161dp"
+                android:layout_height="128dp"
+                android:layout_alignParentStart="true"
+                android:alpha="0.3"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_fish2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.247"
+                app:tint="@color/secondary" />
 
-        <ImageView
-            android:layout_width="106dp"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="289dp"
-            android:layout_marginTop="76dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="553dp"
-            android:alpha="0.3"
-            android:rotation="100"
-            android:src="@drawable/ic_fish2"
-            app:tint="@color/secondary"
-            android:contentDescription="@null"/>
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="122dp"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:alpha="0.3"
+                android:contentDescription="@null"
+                android:rotation="100"
+                android:src="@drawable/ic_fish2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.585"
+                app:tint="@color/secondary" />
 
-        <ImageView
-            android:layout_width="106dp"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="318dp"
-            android:layout_marginTop="542dp"
-            android:layout_marginEnd="-14dp"
-            android:layout_marginBottom="87dp"
-            android:alpha="0.3"
-            android:rotation="180"
-            android:src="@drawable/ic_fish1"
-            app:tint="@color/secondary"
-            android:contentDescription="@null"/>
+            <ImageView
+                android:layout_width="115dp"
+                android:layout_height="145dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.3"
+                android:contentDescription="@null"
+                android:rotation="180"
+                android:src="@drawable/ic_fish1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.697"
+                app:tint="@color/secondary" />
 
-    </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

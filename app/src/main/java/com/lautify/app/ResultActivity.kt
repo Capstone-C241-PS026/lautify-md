@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.lautify.app.databinding.ActivityResultBinding
-import com.lautify.app.fragment.CameraFragment
 
 class ResultActivity : AppCompatActivity() {
 
@@ -26,10 +25,17 @@ class ResultActivity : AppCompatActivity() {
         binding.freshnessText.text = freshness
 
         binding.btnRecipe.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java).apply {
+                putExtra("targetFragment", "CameraFragment")
+            }
             startActivity(intent)
         }
 
+        binding.gotRecipe.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+                putExtra("targetFragment", "RecipeFragment")
+            }
+            startActivity(intent)
+        }
     }
-
 }

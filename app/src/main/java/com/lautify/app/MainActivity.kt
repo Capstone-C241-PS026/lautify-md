@@ -1,13 +1,15 @@
 package com.lautify.app
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.lautify.app.databinding.ActivityMainBinding
-import com.lautify.app.fragment.*
+import com.lautify.app.fragment.CameraFragment
+import com.lautify.app.fragment.HomeFragment
+import com.lautify.app.fragment.ProfileFragment
+import com.lautify.app.fragment.RecipeFragment
+import com.lautify.app.fragment.SearchFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,17 +20,27 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        enableEdgeToEdge()
+        val targetFragment = intent.getStringExtra("targetFragment")
 
-        replaceFragment(HomeFragment())
+        if (targetFragment != null) {
+            when (targetFragment) {
+                "CameraFragment" -> replaceFragment(CameraFragment())
+                "RecipeFragment" -> replaceFragment(RecipeFragment())
+                // Add more cases if needed
+                else -> replaceFragment(HomeFragment())
+            }
+        } else {
+            replaceFragment(HomeFragment())
+        }
 
+        // Set up bottom navigation view
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> replaceFragment(HomeFragment())
                 R.id.info -> replaceFragment(SearchFragment())
                 R.id.recipe -> replaceFragment(RecipeFragment())
                 R.id.profile -> replaceFragment(ProfileFragment())
-                else -> {}
+                else -> false
             }
             true
         }
@@ -37,29 +49,13 @@ class MainActivity : AppCompatActivity() {
         cameraButton.setOnClickListener {
             replaceFragment(CameraFragment())
         }
-
-        val userPref = UserPreferece(this)
-        if (!userPref.isLoggedIn()) {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        } else {
-            // Load the HomeFragment
-            loadFragment(HomeFragment())
-        }
     }
 
-    private fun loadFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.home_fragment, fragment)
-        transaction.commit()
-    }
+
 
     private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit()
     }
-
 }

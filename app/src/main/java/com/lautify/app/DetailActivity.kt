@@ -1,9 +1,11 @@
 package com.lautify.app.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.lautify.app.MainActivity
 import com.lautify.app.api.ApiClient
 import com.lautify.app.api.response.DetailResponse
 import com.lautify.app.databinding.ActivityDetailBinding
@@ -32,6 +34,15 @@ class DetailActivity : AppCompatActivity() {
 
         // Fetch detailed recipe information
         rid?.let { fetchRecipeDetail(it) }
+
+        binding.btnRecipe.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+                putExtra("targetFragment", "RecipeFragment")
+            }
+            startActivity(intent)
+        }
+
+
     }
 
     private fun fetchRecipeDetail(rid: String) {
@@ -63,7 +74,7 @@ class DetailActivity : AppCompatActivity() {
     private fun buildInstructionsText(instructions: List<String>): String {
         val builder = StringBuilder()
         for ((index, instruction) in instructions.withIndex()) {
-            builder.append("${index + 1}. $instruction\n")
+            builder.append("${index + 1}. $instruction\n\n")
         }
         return builder.toString()
     }
@@ -71,8 +82,10 @@ class DetailActivity : AppCompatActivity() {
     private fun buildIngredientsText(ingredients: List<String>): String {
         val builder = StringBuilder()
         for ((index, ingredient) in ingredients.withIndex()) {
-            builder.append("${index + 1}. $ingredient\n")
+            builder.append("$ingredient\n\n")
         }
         return builder.toString()
     }
+
+
 }

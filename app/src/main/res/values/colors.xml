@@ -4,8 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="accent">#8BA3A8</color>
     <color name="font1">#ECA022</color>
-    <color name="primary">#061E42</color>
+    <color name="primary">#0D2A56</color>
     <color name="secondary">#F4F5F4</color>
     <color name="text">#050315</color>
-    <color name="txt_secondary" >#4285F4</color>
+    <color name="txt_secondary" >#245BB5</color>
 </resources>

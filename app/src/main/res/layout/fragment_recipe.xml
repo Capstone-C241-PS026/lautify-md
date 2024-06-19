@@ -7,14 +7,11 @@
     android:id="@+id/recipe_fragment"
     tools:context=".fragment.RecipeFragment">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="50dp"
-        android:paddingHorizontal="5dp">
+     android:padding="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -53,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/recipe_item"
-        android:paddingTop="10dp"/>
+       />
 
 
     </LinearLayout>

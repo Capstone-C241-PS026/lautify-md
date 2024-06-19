@@ -4,92 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_result"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="50dp"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
     tools:context=".ResultActivity">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="910dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
-
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_recipe"
+            android:text=""
+            android:src="@drawable/ic_back"
+            android:backgroundTint="@android:color/transparent"
+        />
         <androidx.cardview.widget.CardView
-            android:layout_width="395dp"
-            android:layout_height="500dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/primary"
             android:layout_gravity="center"
-            app:cardCornerRadius="40dp"
+            android:layout_marginHorizontal="20dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="20dp">
 
             <ImageView
                 android:id="@+id/result_image"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:scaleType="centerCrop"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 app:srcCompat="@drawable/ic_place_holder" />
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="185dp">
+            android:background="@drawable/rectangle"
+            android:orientation="vertical"
+            android:paddingHorizontal="25dp"
+            android:paddingTop="25dp">
 
             <TextView
                 android:id="@+id/text_this_fish_is"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="THIS FISH IS"
+                android:text="Hasil Prediksi :"
                 android:textColor="@color/black"
                 android:textSize="25sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/freshness_text"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/result"
                 android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/text_this_fish_is"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_recipe"
-                android:layout_width="match_parent"
+                android:textSize="18dp"
+                android:justificationMode="inter_word"
+              />
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#34A853"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Go to Home"
-                android:textSize="17dp"
-                android:textColor="@color/secondary"
-                android:textFontWeight="600"
-                app:cornerRadius="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginTop="15dp"
+                android:textSize="18dp"
+                android:text="Ingin telusuri recipe ?"/>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:id="@+id/got_recipe"
+                android:text="Recipe"
+                app:iconGravity="end"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/txt_secondary"
+                app:icon="@drawable/ic_forward"
+                android:layout_height="wrap_content"
+                />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
 
     </LinearLayout>
