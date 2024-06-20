@@ -1,6 +1,7 @@
 package com.lautify.app
 
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        enableEdgeToEdge()
 
         val targetFragment = intent.getStringExtra("targetFragment")
 

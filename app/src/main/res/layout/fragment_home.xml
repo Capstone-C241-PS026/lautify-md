@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.HomeFragment"
-   >
-
+    tools:context=".fragment.HomeFragment">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -32,6 +30,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:padding="25dp"
                 android:orientation="vertical">
 
@@ -63,25 +62,19 @@
         android:layout_gravity="bottom"
         android:orientation="vertical"
         android:padding="25dp"
-        android:background="@drawable/rectangle"
-        >
+        android:background="@drawable/rectangle">
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+                android:layout_height="match_parent">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-
-                    >
+                    android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="30dp"
-                        android:orientation="vertical"
-
-                        >
+                        android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -98,6 +91,7 @@
                             android:paddingTop="15dp"
                             android:textSize="18sp"
                             android:fontFamily="@font/poppins_semibold"
+                            android:textColor="@color/black"
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -105,8 +99,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_marginBottom="80dp"
-                        android:paddingTop="10dp"
-                     >
+                        android:paddingTop="10dp">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -120,9 +113,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="25dp"
-
-                            android:orientation="horizontal"
-                            >
+                            android:orientation="horizontal">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="wrap_content"
@@ -131,8 +122,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginRight="20dp"
                                 app:cardCornerRadius="15dp"
-                                android:outlineSpotShadowColor="@android:color/transparent"
-                                >
+                                android:outlineSpotShadowColor="@android:color/transparent">
 
                                 <ImageView
                                     android:layout_width="130dp"
@@ -159,14 +149,11 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
                                     android:text="Fresh fish eyes tend to be bulging, clear, bright and not dull."
                                     android:textStyle="bold"
                                     android:textColor="@color/black"/>
 
                             </LinearLayout>
-
-
 
                         </LinearLayout>
 
@@ -175,8 +162,7 @@
                             android:layout_height="wrap_content"
                             android:paddingRight="10dp"
                             android:layout_marginBottom="20dp"
-                            android:orientation="horizontal"
-                            >
+                            android:orientation="horizontal">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -189,15 +175,14 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Eye"
+                                    android:text="Scale"
                                     android:textSize="25sp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold"/>
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
-                                    android:text="Fresh fish eyes tend to be bulging, clear, bright and not dull."
+                                    android:text="For fresh fish, the scales will stick tightly to the fleshy body."
                                     android:textStyle="bold"
                                     android:textColor="@color/black"/>
 
@@ -209,8 +194,7 @@
                                 android:layout_gravity="center"
                                 app:cardCornerRadius="15dp"
                                 android:elevation="0dp"
-                                android:outlineSpotShadowColor="@android:color/transparent"
-                                >
+                                android:outlineSpotShadowColor="@android:color/transparent">
 
                                 <ImageView
                                     android:layout_width="130dp"
@@ -229,8 +213,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="25dp"
                             android:paddingRight="10dp"
-                            android:orientation="horizontal"
-                            >
+                            android:orientation="horizontal">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="wrap_content"
@@ -239,8 +222,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginRight="20dp"
                                 app:cardCornerRadius="15dp"
-                                android:outlineSpotShadowColor="@android:color/transparent"
-                                >
+                                android:outlineSpotShadowColor="@android:color/transparent">
 
                                 <ImageView
                                     android:layout_width="130dp"
@@ -260,7 +242,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Eye"
+                                    android:text="Gill"
                                     android:textSize="25sp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold"/>
@@ -268,12 +250,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
 
-                                    android:text="Fresh fish eyes tend to be bulging, clear, bright and not dull."
+                                    android:text="The characteristics of fresh fish that the gills are slightly reddish in color and have a fresh smell."
                                     android:textStyle="bold"
                                     android:textColor="@color/black"/>
 
                             </LinearLayout>
-
 
 
                         </LinearLayout>
@@ -282,8 +263,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingRight="10dp"
-                            android:orientation="horizontal"
-                            >
+                            android:orientation="horizontal">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -296,7 +276,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Eye"
+                                    android:text="Meat"
                                     android:textSize="25sp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold"/>
@@ -304,7 +284,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
 
-                                    android:text="Fresh fish eyes tend to be bulging, clear, bright and not dull."
+                                    android:text="Fresh fish has firm flesh that is not mushy or feels rubbery."
                                     android:textStyle="bold"
                                     android:textColor="@color/black"/>
 
@@ -316,8 +296,7 @@
                                 android:layout_gravity="center"
                                 app:cardCornerRadius="15dp"
                                 android:elevation="0dp"
-                                android:outlineSpotShadowColor="@android:color/transparent"
-                                >
+                                android:outlineSpotShadowColor="@android:color/transparent">
 
                                 <ImageView
                                     android:layout_width="130dp"
@@ -327,7 +306,6 @@
                                     app:srcCompat="@drawable/meat_fish"/>
 
                             </androidx.cardview.widget.CardView>
-
 
                         </LinearLayout>
 

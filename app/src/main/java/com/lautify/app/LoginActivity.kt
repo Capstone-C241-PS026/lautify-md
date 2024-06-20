@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.lautify.app.api.ApiClient
@@ -32,6 +33,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        enableEdgeToEdge()
 
         apiService = ApiClient.getInstance()
         preferenceHelper = UserPreferece(this)

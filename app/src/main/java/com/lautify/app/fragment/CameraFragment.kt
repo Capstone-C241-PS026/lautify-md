@@ -150,7 +150,7 @@ class CameraFragment : Fragment() {
 
                             if (status == "error") {
                                 Log.d("eye_detect", message)
-                                Toast.makeText(requireContext(), "Mata ikan tidak terdeteksi", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireContext(), "Fish eyes not detected.", Toast.LENGTH_SHORT).show()
                             } else {
                                 var freshCount = 0
                                 var notFreshCount = 0
@@ -164,7 +164,7 @@ class CameraFragment : Fragment() {
                                     }
                                 }
 
-                                val freshnessDescription = "Dari hasil analisis gambar, terdapat $freshCount ikan yang segar dan $notFreshCount ikan yang tidak segar. Pastikan untuk memeriksa kondisi ikan secara fisik untuk memastikan kesegarannya sebelum dikonsumsi. 👍🏻"
+                                val freshnessDescription = "From the image analysis, there are $freshCount fresh fish and $notFreshCount not fresh fish. Be sure to physically inspect the condition of the fish to confirm its freshness before consumption. 👍🏻"
 
                                 // Start ResultActivity and pass the data
                                 val intent = Intent(requireContext(), ResultActivity::class.java).apply {

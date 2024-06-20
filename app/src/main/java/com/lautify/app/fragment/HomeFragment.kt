@@ -14,12 +14,14 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var preferenceHelper: UserPreferece
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
+
 
     }
 
@@ -29,6 +31,7 @@ class HomeFragment : Fragment() {
 
         val username = preferenceHelper.getUsername()
         binding.tvItemName.text = username
+
     }
 
     override fun onDestroyView() {

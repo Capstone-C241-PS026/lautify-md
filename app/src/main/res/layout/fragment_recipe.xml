@@ -13,7 +13,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:backgroundTint="@android:color/transparent"
-     android:padding="5dp">
+        android:padding="5dp"
+        android:layout_marginTop="25dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,6 +27,7 @@
                 android:inputType="text"
                 android:textStyle="bold"
                 android:hint="Search"
+                android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 tools:ignore="MissingConstraints" />
 

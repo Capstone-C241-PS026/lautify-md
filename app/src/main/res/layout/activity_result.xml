@@ -54,7 +54,7 @@
                 android:id="@+id/text_this_fish_is"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hasil Prediksi :"
+                android:text="Prediction Results :"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:textSize="18dp"
-                android:text="Ingin telusuri recipe ?"/>
+                android:text="Want to explore recipes? "/>
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:id="@+id/got_recipe"
