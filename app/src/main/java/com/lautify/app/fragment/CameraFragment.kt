@@ -145,11 +145,11 @@ class CameraFragment : Fragment() {
                             val data = json.optJSONObject("data") ?: JSONObject()
                             val imageUrl = data.optString("image", "")
                             val predictions = data.optJSONArray("predictions") ?: JSONArray()
+                            val fishKind = data.optString("fish_kind", "")
                             val freshnessList = mutableListOf<String>()
                             val message = json.optJSONArray("message")?.optString(0, "Unknown error") ?: "Unknown error"
 
                             if (status == "error") {
-                                Log.d("eye_detect", message)
                                 Toast.makeText(requireContext(), "Fish eyes not detected.", Toast.LENGTH_SHORT).show()
                             } else {
                                 var freshCount = 0
@@ -164,7 +164,9 @@ class CameraFragment : Fragment() {
                                     }
                                 }
 
-                                val freshnessDescription = "From the image analysis, there are $freshCount fresh fish and $notFreshCount not fresh fish. Be sure to physically inspect the condition of the fish to confirm its freshness before consumption. 👍🏻"
+                                val freshnessDescription = "From the image analysis , there are $freshCount fresh fish and $notFreshCount not " +
+                                        "fresh fish. Be sure to physically inspect the condition of the fish to confirm its freshness before " +
+                                        "consumption.\nAccording to our prediction the type of fish is \"$fishKind\""
 
                                 // Start ResultActivity and pass the data
                                 val intent = Intent(requireContext(), ResultActivity::class.java).apply {

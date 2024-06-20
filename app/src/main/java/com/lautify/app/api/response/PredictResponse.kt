@@ -24,7 +24,10 @@ data class Data(
 	val image: String? = null,
 
 	@field:SerializedName("predictions")
-	val predictions: List<PredictionsItem?>? = null
+	val predictions: List<PredictionsItem?>? = null,
+
+	@field:SerializedName("fish_kind")
+	val fishKind: String? = null,
 )
 
 data class PredictionsItem(
