@@ -27,7 +27,11 @@
             android:exported="false" />
         <activity
             android:name=".ui.DetailActivity"
-            android:exported="false" /> <!-- Get Started -->
+            android:exported="false" />
+        <activity
+            android:name=".ui.DetailSavedActivity"
+            android:exported="false" />
+        <!-- Get Started -->
         <activity
             android:name=".GetStartedActivity"
             android:exported="true">

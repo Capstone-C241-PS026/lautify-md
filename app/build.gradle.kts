@@ -39,6 +39,9 @@ android {
     buildFeatures {
         mlModelBinding = true
     }
+    dataBinding{
+        enable = true
+    }
 }
 
 dependencies {

@@ -157,7 +157,7 @@ class CameraFragment : Fragment() {
 
                                 for (i in 0 until predictions.length()) {
                                     val freshness = predictions.optJSONObject(i)?.optString("freshness", "Unknown freshness")
-                                    if (freshness == "not fresh") {
+                                    if (freshness == "Not Fresh") {
                                         notFreshCount++
                                     } else {
                                         freshCount++

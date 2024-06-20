@@ -4,15 +4,19 @@
     <item android:title="Home"
         android:id="@+id/home"
         android:icon="@drawable/ic_home"/>
-    <item android:title="Info"
-        android:id="@+id/info"
-        android:icon="@drawable/info_alt"/>
+
+    <item android:title="Recipes"
+        android:id="@+id/recipe"
+        android:icon="@drawable/ic_book"/>
+
     <item android:title=""
         android:id="@null"
        android:enabled="false"/>
-    <item android:title="Recipe"
-        android:id="@+id/recipe"
-        android:icon="@drawable/ic_book"/>
+
+    <item android:title="Archive"
+        android:id="@+id/saveRecipes"
+        android:icon="@drawable/ic_archive"/>
+
     <item android:title="Profile"
         android:id="@+id/profile"
         android:icon="@drawable/ic_user"

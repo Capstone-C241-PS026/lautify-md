@@ -1,11 +1,13 @@
 package com.lautify.app.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.lautify.app.UserPreferece
 import com.lautify.app.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
@@ -24,7 +26,7 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val storyId = arguments?.getString("RID")
+        val recipeId = arguments?.getString("RID")
         val storyTitle = arguments?.getString("TITLE")
         val storyPhotoUrl = arguments?.getString("RECIPE_PHOTO_URL")
 

@@ -12,18 +12,18 @@ import com.lautify.app.UserPreferece
 import com.lautify.app.api.ApiClient
 import com.lautify.app.api.response.DetailResponse
 import com.lautify.app.api.response.SimpleResponse
-import com.lautify.app.databinding.ActivityDetailBinding
+import com.lautify.app.databinding.ActivityDetailSavedBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailActivity : AppCompatActivity() {
+class DetailSavedActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityDetailBinding
+    private lateinit var binding: ActivityDetailSavedBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailBinding.inflate(layoutInflater)
+        binding = ActivityDetailSavedBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val rid = intent.getStringExtra("RID")
@@ -41,7 +41,7 @@ class DetailActivity : AppCompatActivity() {
 
         binding.btnRecipe.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java).apply {
-                putExtra("targetFragment", "RecipeFragment")
+                putExtra("targetFragment", "SavedRecipeFragment")
             }
             startActivity(intent)
         }
@@ -52,25 +52,30 @@ class DetailActivity : AppCompatActivity() {
         Log.d("UserId", uid)
         Log.d("recipeId", rid.toString())
 
-        binding.btnSaveRecipe.setOnClickListener {
-            rid?.let { saveRecipeById(uid, it) }
+        binding.btnDeleteRecipe.setOnClickListener {
+            rid?.let { deleteRecipeById(uid, it) }
         }
     }
 
-    private fun saveRecipeById(uid: String, rid: String) {
-        ApiClient.instances.saveRecipe(uid, rid).enqueue(object : Callback<SimpleResponse> {
+    private fun deleteRecipeById(uid: String, rid: String) {
+        ApiClient.instances.deleteRecipe(uid, rid).enqueue(object : Callback<SimpleResponse> {
             override fun onResponse(call: Call<SimpleResponse>, response: Response<SimpleResponse>) {
                 if (response.isSuccessful) {
                     response.body()?.let {
-                        Toast.makeText(this@DetailActivity, it.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@DetailSavedActivity, it.message, Toast.LENGTH_SHORT).show()
+
+                        val intent = Intent(this@DetailSavedActivity, MainActivity::class.java).apply {
+                            putExtra("targetFragment", "SavedRecipeFragment")
+                        }
+                        startActivity(intent)
                     }
                 } else {
-                    Toast.makeText(this@DetailActivity, "Failed to save recipe", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@DetailSavedActivity, "Failed to delete recipe", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<SimpleResponse>, t: Throwable) {
-                Toast.makeText(this@DetailActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@DetailSavedActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }

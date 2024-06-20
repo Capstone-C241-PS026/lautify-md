@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lautify.app.adapter.UserAdapter
+import com.lautify.app.adapter.RecipeAdapter
 import com.lautify.app.api.ApiClient
 import com.lautify.app.api.response.RecipesResponse
 import com.lautify.app.databinding.FragmentRecipeBinding
@@ -78,7 +78,7 @@ class RecipeFragment : Fragment() {
                     val result = response.body()
                     result?.let {
                         list.addAll(it)
-                        val adapter = UserAdapter(list, requireActivity())
+                        val adapter = RecipeAdapter(list, requireActivity())
                         binding.rvData.adapter = adapter
                         printLog("Recipes loaded: ${it.size}")
                     }
@@ -114,7 +114,7 @@ class RecipeFragment : Fragment() {
                     result?.let {
                         list.clear()
                         list.addAll(it)
-                        val adapter = UserAdapter(list, requireActivity())
+                        val adapter = RecipeAdapter(list, requireActivity())
                         binding.rvData.adapter = adapter
                         printLog("Search results loaded: ${it.size}")
                     }

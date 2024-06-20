@@ -9,6 +9,7 @@ import com.lautify.app.fragment.CameraFragment
 import com.lautify.app.fragment.HomeFragment
 import com.lautify.app.fragment.ProfileFragment
 import com.lautify.app.fragment.RecipeFragment
+import com.lautify.app.fragment.SavedRecipeFragment
 import com.lautify.app.fragment.SearchFragment
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
             when (targetFragment) {
                 "CameraFragment" -> replaceFragment(CameraFragment())
                 "RecipeFragment" -> replaceFragment(RecipeFragment())
+                "SavedRecipeFragment" -> replaceFragment(SavedRecipeFragment())
                 // Add more cases if needed
                 else -> replaceFragment(HomeFragment())
             }
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> replaceFragment(HomeFragment())
-                R.id.info -> replaceFragment(SearchFragment())
+                R.id.saveRecipes -> replaceFragment(SavedRecipeFragment())
                 R.id.recipe -> replaceFragment(RecipeFragment())
                 R.id.profile -> replaceFragment(ProfileFragment())
                 else -> false

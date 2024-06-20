@@ -8,4 +8,8 @@ data class RecipesResponse(
 	val image:String
 )
 
+data class SimpleResponse(
+	val message: String
+)
+
 

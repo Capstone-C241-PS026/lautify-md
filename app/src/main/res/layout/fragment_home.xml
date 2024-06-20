@@ -1,41 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.HomeFragment">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.HomeFragment"
+   >
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="25dp"
-        android:background="@drawable/backpict">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:translationZ="-1dp"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+            <ImageView
+            android:id="@+id/result_image"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome,"
-            android:textSize="20dp"
-            android:textColor="#FFFF"
-            android:layout_gravity="top|start"/>
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/backpict"/>
 
-        <TextView
-            android:id="@+id/tv_item_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/name_placeholder"
-            android:textSize="24dp"
-            android:textColor="#FFFF"
-            android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="25dp"
+                android:orientation="vertical">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:text="Welcome,"
+                    android:textColor="#FFFF"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_item_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/name_placeholder"
+                    android:textColor="#FFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,31 +62,279 @@
         android:layout_marginTop="-40dp"
         android:layout_gravity="bottom"
         android:orientation="vertical"
+        android:padding="25dp"
         android:background="@drawable/rectangle"
         >
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:padding="25dp"
-    android:layout_height="match_parent" android:orientation="vertical">
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="30dp"
+                        android:orientation="vertical"
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/title_home"
-         android:textSize="25dp"
-            android:textStyle="bold"
-            android:fontFamily="@font/poppins"
-            android:textColor="@color/black"/>
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_home"
+                            android:textSize="25sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/poppins"
+                            android:textColor="@color/black"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/desc_home"
-            android:paddingTop="15dp"
-            android:textSize="18dp"
-            android:fontFamily="@font/poppins_semibold"
-            /></LinearLayout>
-    </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/desc_home"
+                            android:paddingTop="15dp"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/poppins_semibold"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="80dp"
+                        android:paddingTop="10dp"
+                     >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_home"
+                            android:textSize="25sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/poppins"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="20dp"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="25dp"
+
+                            android:orientation="horizontal"
+                            >
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/primary"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="20dp"
+                                app:cardCornerRadius="15dp"
+                                android:outlineSpotShadowColor="@android:color/transparent"
+                                >
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    app:srcCompat="@drawable/fish_eye"/>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.8"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Eye"
+                                    android:textSize="25sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="Fresh fish eyes tend to be bulging, clear, bright and not dull."
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:layout_marginBottom="20dp"
+                            android:orientation="horizontal"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity=""
+                                android:layout_marginRight="20dp"
+                                android:layout_weight="0.8"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Eye"
+                                    android:textSize="25sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="Fresh fish eyes tend to be bulging, clear, bright and not dull."
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/primary"
+                                android:layout_gravity="center"
+                                app:cardCornerRadius="15dp"
+                                android:elevation="0dp"
+                                android:outlineSpotShadowColor="@android:color/transparent"
+                                >
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    app:srcCompat="@drawable/scale_fish"/>
+
+                            </androidx.cardview.widget.CardView>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="25dp"
+                            android:paddingRight="10dp"
+                            android:orientation="horizontal"
+                            >
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/primary"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="20dp"
+                                app:cardCornerRadius="15dp"
+                                android:outlineSpotShadowColor="@android:color/transparent"
+                                >
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    app:srcCompat="@drawable/gill_fish"/>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.8"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Eye"
+                                    android:textSize="25sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="Fresh fish eyes tend to be bulging, clear, bright and not dull."
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:orientation="horizontal"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity=""
+                                android:layout_marginRight="20dp"
+                                android:layout_weight="0.8"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Eye"
+                                    android:textSize="25sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="Fresh fish eyes tend to be bulging, clear, bright and not dull."
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"/>
+
+                            </LinearLayout>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/primary"
+                                android:layout_gravity="center"
+                                app:cardCornerRadius="15dp"
+                                android:elevation="0dp"
+                                android:outlineSpotShadowColor="@android:color/transparent"
+                                >
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:adjustViewBounds="true"
+                                    app:srcCompat="@drawable/meat_fish"/>
+
+                            </androidx.cardview.widget.CardView>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
 </LinearLayout>
-</FrameLayout>
